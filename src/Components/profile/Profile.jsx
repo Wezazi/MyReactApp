@@ -1,6 +1,6 @@
 import "./Profile.css"
-import profilePic from "../assets/profile.jpg"
-import johnProfile from "../assets/john.jpg"
+import profilePic from "../../assets/profile.jpg"
+import johnProfile from "../../assets/john.jpg"
 
 function Profile(props){
 

@@ -1,7 +1,12 @@
 import "./Project.css"
 import flex1 from "../../assets/flex1.png"
 import flex2 from "../../assets/flex2.png"
+import grid1 from "../../assets/grid.png"
 
+import skills1 from "../../assets/t2.png"
+import skills2 from "../../assets/t2-r.png"
+import skills3 from "../../assets/t4.png"
+import skills4 from "../../assets/t4-r.png"
 
 function Project(props){
     
@@ -25,10 +30,18 @@ function Project(props){
 
     function images(array){
         let codeList = [];
+        let n = 0;
         for (let image of array){
+            if (n == 0){
+                n = 1;
+            }
+            else{
+                n = 0;
+            }
+
             codeList.push(
                 <div className="cyber-tile">
-                    <img className="cyber-img cyber-glitch-0" src={image}/>
+                    <img className={`cyber-img cyber-glitch-${n}`} src={image}/>
                 </div>
             )
         }
@@ -36,27 +49,37 @@ function Project(props){
     }
 
     let flexImages = images([flex1, flex2]);
+    let gridImages = images([grid1])
+    let skillImages = images([skills1, skills2, skills3, skills4])
 
+    function test(name){
 
+        if (name.toLowerCase().includes("flex")){
+            return flexImages;
+        }
+        else if (name.toLowerCase().includes("grid")){
+            return gridImages;
+        }
+        else if (name.toLowerCase().includes("skill")){
+            return skillImages;
+        }
 
+    }
+
+    //This reminds me of php, it's pretty similar to how you use variables within html.
     return(
         <>
-            <div className="">
-                <div className="cyber-razor-top"></div>
-                <h1 className="text cyber-banner cyber-glitch-2">Projects</h1>
-                <div className="cyber-razor-bottom"></div>
-            </div>
-
             <div className="cyber-con">
                 <h2 className="text">{props.projectName}</h2>
                 <p className="text">{props.repo}</p>
 
                 
                 <div className="nested">
-                    {flexImages} {/*I was worried about how i was gonna make this work because i can't run for loop inside the html but thankefully react automatically renders each value in the list*/}
+                    {test(props.projectName)} {/*I was worried about how i was gonna make this work because i can't run for loop inside the html but thankefully react automatically renders each value in the list*/}
                 </div>
             </div>
 
+            
             <div className="block-c">
                 <div className="code-block oxanium-font">
                     const tech = {tech};
@@ -70,9 +93,10 @@ function Project(props){
 
             </div>
             
-
         </>
     )
 }
+
+
 
 export default Project;

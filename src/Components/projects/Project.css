@@ -1,5 +1,10 @@
-body{
-    background-color: #ff003c;
+body{ 
+    /*
+        I just realized that using elements instead of classes as selectors will apply the css to all of the pages.
+        I tried wrapping my projects.jsx inside a div and then apply red background to that div but it didn't work so i reverted to this
+        Not sure how to fix this
+     */
+    background-color: #ff003c; 
 }
 
 img{

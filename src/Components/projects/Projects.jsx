@@ -68,7 +68,7 @@ function Project(props){
 
     //This reminds me of php, it's pretty similar to how you use variables within html.
     return(
-        <>
+        <>  
             <div className="cyber-con">
                 <h2 className="text">{props.projectName}</h2>
                 <p className="text">{props.repo}</p>

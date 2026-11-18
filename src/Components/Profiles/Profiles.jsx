@@ -1,4 +1,4 @@
-import "./Profile.css"
+import "./Profiles.css"
 import profilePic from "../../assets/profile.jpg"
 import johnProfile from "../../assets/john.jpg"
 

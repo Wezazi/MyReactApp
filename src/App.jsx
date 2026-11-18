@@ -14,7 +14,7 @@ function App() {
 				<Navbar></Navbar> {/*This makes the navbar appear in all pages, you can do the same for other elements, e.g. if you want all pages to start with the same header or end with the same footer*/}
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/projects" element={<Portfolio />} />
+					<Route path="/home/projects" element={<Portfolio />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/profiles" element={<Profiles />} />
 				</Routes>

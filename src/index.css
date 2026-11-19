@@ -24,7 +24,7 @@
     color:black;
 }
 
-.cyber-nav__link:hover{
+.cyber-nav__link:hover, .current:hover{
     color:red;
 }
 
@@ -98,8 +98,9 @@
     color: black;
     margin-left:30px;
     font-size:50px;
-
-    /*I would prefer it to be located in the middle instead of far left but that would require changing to grid and therefore sacrificing the responsiveness, it won't wrap when this header and the nav links bump in to each other. */
+    
+    
+    /*What's preventing this and the navlinks in the header from shrinking with the viewport? */
 }
 
 .orbitron-font{

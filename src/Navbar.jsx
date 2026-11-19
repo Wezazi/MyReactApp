@@ -8,7 +8,7 @@ function Navbar(){
     /*location.pathname returns the full path to the current page but i only want to keep the current directory without including the parent directories or any slashes*/
 
     if(location.length == 1){
-        location = "Homepage"; 
+        location = "Home"; 
     }
     else{
         /*Python rsplit() doesn't exist in Javascript so this is the equivalent:*/

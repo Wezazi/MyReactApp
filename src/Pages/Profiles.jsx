@@ -4,7 +4,7 @@ import Profile from "../Components/Profiles/Profiles.jsx";
 
 function ProfileF(){ 
 
-    {/*I don't know why the background color is red, i haven't set any css to this page*/}
+    
     return(
         <>
             <div>

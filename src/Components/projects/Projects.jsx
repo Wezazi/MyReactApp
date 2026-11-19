@@ -23,9 +23,10 @@ function Project(props){
         string = `[${string}]`
         return string;
     }
-
+    /*
     tech = quotes(tech);
     learned = quotes(learned);
+    */
 
 
     function images(array){
@@ -79,19 +80,20 @@ function Project(props){
                 </div>
             </div>
 
-            
-            <div className="block-c">
-                <div className="code-block oxanium-font">
-                    const tech = {tech};
-                    <br></br><br></br>
-                    var writeup = "{props.writeup}";
-                    <br></br><br></br>
-                    const learned = {learned};
-                    <br></br><br></br>
-                    var challenges = "{props.challenges}";
-                </div>
+            {/*
+                <div className="block-c">
+                    <div className="code-block oxanium-font">
+                        const tech = {tech};
+                        <br></br><br></br>
+                        var writeup = "{props.writeup}";
+                        <br></br><br></br>
+                        const learned = {learned};
+                        <br></br><br></br>
+                        var challenges = "{props.challenges}";
+                    </div>
 
-            </div>
+                </div>
+            */}
             
         </>
     )

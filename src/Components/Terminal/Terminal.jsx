@@ -9,7 +9,7 @@ function Terminal(props){
     useEffect(() => {
         createPrompt();
     });
-    //A problem with useeffect is that it runs my 
+    //A problem with useeffect is that it runs my function twice but not that big of a deal tbh
     
     const terminalBody = useRef(null);
 
@@ -32,6 +32,7 @@ function Terminal(props){
                 "details.json": `
                 {<br>
                     &nbsp;&nbsp;&nbsp;&nbsp"name":"${props.name}",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp"github":"${props.repo}",<br>
                     &nbsp;&nbsp;&nbsp;&nbsp"tech":${props.tech},<br>
                     &nbsp;&nbsp;&nbsp;&nbsp"learned":${props.learned}<br>
                 }`,

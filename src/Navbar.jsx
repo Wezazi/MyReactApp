@@ -29,8 +29,8 @@ function Navbar(){
                         <li><Link className="cyber-nav__link" to="/">Home</Link></li>
                         <li><Link className="cyber-nav__link" to="/projects">Projects</Link></li> 
                         <li><Link className="cyber-nav__link" to="/about">About</Link></li>
-                        <li><Link className="cyber-nav__link" to="/terminal">Terminal</Link></li>
-
+                        
+                        {/*<li><Link className="cyber-nav__link" to="/terminal">Terminal</Link></li> */}
                         {/* <li><Link className="cyber-nav__link" to="/profiles">Profiles</Link></li> */}
                     </ul>
                 </nav>

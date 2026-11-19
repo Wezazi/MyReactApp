@@ -5,7 +5,7 @@
   display: flex;  
   justify-content: center;  
   align-items: center;  
-  height: 100vh;
+  /*height: 100vh; */
 } 
 #terminal {  
   width: 70vw;  
@@ -121,3 +121,9 @@
         white-space: pre-wrap;
     }
 */
+
+.buttonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,7 +1,7 @@
 import "./Terminal.css";
 import { useRef} from "react"; // To handle unrendered html
 import { useEffect } from "react"; // To handle unrendered component (Terminal()) 
-
+import { useState } from "react";
 
 //created this terminal in a seperate repo so the full commit history is at: https://github.com/Wezazi/BrowserTerminal
 function Terminal(props){
@@ -12,6 +12,8 @@ function Terminal(props){
     //A problem with useeffect is that it runs my function twice but not that big of a deal tbh
     
     const terminalBody = useRef(null);
+
+    const [isOpen, setIsOpen] = useState(false);
 
     let currentUser = "root"
     let homeDirectory;
@@ -262,11 +264,17 @@ function Terminal(props){
     return(
         <>
             <main id="container">
-                <div id="terminal">
-        
+                <div className="buttonContainer">
+                    <button className={isOpen ? "popupBtn hide" : "popupBtn"} onClick={() => {
+                        setIsOpen(true);
+                    }}>Click Me!</button>
+                </div>
+                <div id="terminal" className={isOpen ? "" : "hide"}>
                     <section id="terminal__bar">          
                         <div id="bar__buttons">            
-                            <button className="bar__button" id="bar__button--exit">&#10005;</button>            
+                            <button className="bar__button" id="bar__button--exit" onClick={() => {
+                                setIsOpen(false);
+                            }}>&#10005;</button>          
                             <button className="bar__button">&#9472;</button>                
                             <button className="bar__button">&#9723;</button>          
                         </div>          

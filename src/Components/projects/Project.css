@@ -166,10 +166,6 @@ img{
 }
 
 
-.hide{
-  display:none;
-}
-
 .buttonContainer{
     display: flex;
     align-items: center;

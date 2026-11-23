@@ -6,11 +6,8 @@ import { useState } from "react";
 //created this terminal in a seperate repo so the full commit history is at: https://github.com/Wezazi/BrowserTerminal
 function Terminal(props){
 
-    useEffect(() => {
-        createPrompt();
-    });
-    //A problem with useeffect is that it runs my function twice but not that big of a deal tbh
     
+
     const terminalBody = useRef(null);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -251,42 +248,55 @@ function Terminal(props){
                 };
                 terminalBody.current.appendChild(output);
                 
-                
                 createPrompt();
                 preventOverflow();
+                
+
             }
         });
     }
 
-    
-    
+    useEffect(() => {
+        if (isOpen && terminalBody.current) {
+            createPrompt();
+            preventOverflow();
+        }
+    }, [isOpen]);
 
+    
     return(
         <>
             <main id="container">
-                <div className="buttonContainer">
-                    <button className={isOpen ? "popupBtn hide" : "popupBtn"} onClick={() => {
-                        setIsOpen(true);
-                    }}>Click Me!</button>
-                </div>
-                <div id="terminal" className={isOpen ? "" : "hide"}>
-                    <section id="terminal__bar">          
-                        <div id="bar__buttons">            
-                            <button className="bar__button" id="bar__button--exit" onClick={() => {
-                                setIsOpen(false);
-                            }}>&#10005;</button>          
-                            <button className="bar__button">&#9472;</button>                
-                            <button className="bar__button">&#9723;</button>          
-                        </div>          
-                        <p id="bar__user">root@ubuntu: ~</p>        
-                    </section>        
-                      
-                    <section id="terminal__body" ref={terminalBody}>
-                        <div>Run help to see all available commands</div>
-                    
 
-                    </section>      
-                </div>    
+                {!isOpen && (
+                    <div className="buttonContainer">
+                        <button onClick={() => {
+                            setIsOpen(true);
+                        }}>Click Me!</button>
+                    </div>
+                )}
+
+
+                {isOpen &&(
+                    <div id="terminal">
+                        <section id="terminal__bar">          
+                            <div id="bar__buttons">            
+                                <button className="bar__button" id="bar__button--exit" onClick={() => {
+                                    setIsOpen(false);
+                                }}>&#10005;</button>          
+                                <button className="bar__button">&#9472;</button>                
+                                <button className="bar__button">&#9723;</button>          
+                            </div>          
+                            <p id="bar__user">root@ubuntu: ~</p>        
+                        </section>        
+                        
+                        <section id="terminal__body" ref={terminalBody}>
+                            <div>Run help to see all available commands</div>
+                        
+
+                        </section>      
+                    </div>    
+                )}
             </main>
         </>
     )

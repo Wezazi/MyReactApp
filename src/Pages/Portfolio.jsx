@@ -13,12 +13,24 @@ function Portfolio() {
 
     const [search, setSearch] = useState("");
 
+    const [visible, setVisible] = useState(false);
+
     
 	return(
 		<>
             <div className="buttonContainer">
                 <button className="previewBtn cyber-button" onClick={ () => {handleEvent()}}><span>{isHidden ? "Show Projects" : "Hide Projects"}</span></button>
             </div>
+
+
+
+            {visible && (
+                <h2>Hello</h2>
+            )}
+
+            <button className="cyber-button" onClick={() =>{
+                setVisible(!visible);
+            }}> </button>
 
 
 

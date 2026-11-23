@@ -15,7 +15,23 @@ function Portfolio() {
 
     const [visible, setVisible] = useState(false);
 
+    const [empty, setEmpty] = useState(true);
+
+    const [matchList, setMatchList] = useState([]);
+
+    function checkEmpty(text){
+        if (text.length >= 1){
+            setEmpty(false);
+            setMatchList(match(text));
+        }
+        else{
+            setEmpty(true);
+            setMatchList([]);
+        }
+    }
+
     let elementList = [];
+    
 
     const project0 = (
         <div className="project0" key="project0"> {/*Make sure to not type key={project0} because that will use the entire project0 object as a key*/}
@@ -43,36 +59,9 @@ function Portfolio() {
     elementList.push(project0, project1, project2);
 
 
-    /*
-        elementList.forEach((element) => { //the .forEach is useless in js, it returns keys and values but you can't access the keys or values individually so you need to run a nested loop
-            console.log(element);
-            console.log(Object.keys(element));
-            console.log(Object.values(element));
-
-            to acess key and values individually
-            for (const [key, value] of Object.entries(element)) {
-                console.log(key, value);
-            }
-            
-        })
-
-        //Keep in mind that the thing run twice so don't get confused when everything appears twice in console
-        elementList.forEach((project) => {
-            project.props.children.forEach((component) => {
-                if (typeof component == "object") { //Because it kept outputting undefined for component in index 0
-                    console.log("Project:", project.props.className);
-                    console.log("Component:", component.type.name);
-                    console.log("Props:", component.props);
-
-                }
-            });
-
-        });
-
-    */
 
     function match(search){
-       var matches = new Set(); //Nice js also has sets, we can use them to avoid creating an if statement to prevent duplicate values
+        let list = [];
         elementList.forEach((project) => {
 
             project.props.children.forEach((component) => {
@@ -81,31 +70,17 @@ function Portfolio() {
                     // I can use JSON.sttringify but it includes escaping characters so this is better for my use:
                     Object.values(component.props).forEach((value) => {
                         if (typeof value == "string" && value.toLowerCase().includes(search.toLowerCase())){
-                            matches.add(project.props.className)
+                            list.push(project);
                         }
                     });
                 }
             });
         });
+
+        let set = new Set(list); /*Js sets are a bit weird but i got it working */
+        list = [...set] // just puts the set values in a list because react doesn't render set values
+        return list;
     }
-
-
-    elementList.forEach((project) => {
-        project.props.children.forEach((component) => {
-            if (typeof component == "object") { 
-
-                // I can use JSON.sttringify but it includes escaping characters so this is better for my use:
-                Object.values(component.props).forEach((value) => {
-                    if (typeof value == "string"){
-                        console.log(value);
-                    }
-                    
-                });
-
-            }
-        });
-
-    });
 
 
 	return(
@@ -121,8 +96,9 @@ function Portfolio() {
             </div>
 
 
-            {visible && ( /*This is the same: if visible == True, show this html. You need to have ONE parent element for this to work, you can't apply it on multiple sibling elements, that's why i have all html nested within a parent div */
+            {visible &&( /*This is the same: if visible == True, show this html. You need to have ONE parent element for this to work, you can't apply it on multiple sibling elements, that's why i have all html nested within a parent div */
                 <div> 
+                    
 
                     <div className="searchBar">
                         <input 
@@ -131,10 +107,14 @@ function Portfolio() {
                             value={search}
                             onChange={(event) =>{
                                 setSearch(event.target.value);
+                                checkEmpty(event.target.value);
+
                             }}
                         />
                     </div>
-                    {elementList};
+
+                    {empty && elementList}; 
+                    {!empty && matchList}; 
                     
                 </div>
             )}

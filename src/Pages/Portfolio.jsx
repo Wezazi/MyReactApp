@@ -5,12 +5,6 @@ import Terminal from "../Components/Terminal/Terminal.jsx";
 
 function Portfolio() {
 
-    const [isHidden, setIsHidden] = useState(true);
-
-    const handleEvent = () => {
-        setIsHidden(!isHidden);
-    }
-
     const [search, setSearch] = useState("");
 
     const [visible, setVisible] = useState(false);
@@ -67,7 +61,7 @@ function Portfolio() {
             project.props.children.forEach((component) => {
                 if (typeof component == "object") { //Because it kept outputting undefined for component in index 0 which was a empty string? and not a object
 
-                    // I can use JSON.sttringify but it includes escaping characters so this is better for my use:
+                    // I can use JSON.sttringify but it includes escaped characters so this is better for my use:
                     Object.values(component.props).forEach((value) => {
                         if (typeof value == "string" && value.toLowerCase().includes(search.toLowerCase())){
                             list.push(project);
@@ -90,13 +84,13 @@ function Portfolio() {
                         setVisible(!visible);
                     }}>
                     
-                    <span>{isHidden ? "Show Projects" : "Hide Projects"}</span>
+                    <span>{visible ? "Show Projects" : "Hide Projects"}</span>
                     
                 </button>
             </div>
 
 
-            {visible &&( /*This is the same: if visible == True, show this html. You need to have ONE parent element for this to work, you can't apply it on multiple sibling elements, that's why i have all html nested within a parent div */
+            {visible &&( /*This is the same as: if visible == True, show this html. btw You need to have ONE parent element for this to work, you can't apply it on multiple sibling elements, that's why i have all html nested within a parent div */
                 <div> 
                     
 

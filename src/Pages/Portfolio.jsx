@@ -84,7 +84,7 @@ function Portfolio() {
                         setVisible(!visible);
                     }}>
                     
-                    <span>{visible ? "Show Projects" : "Hide Projects"}</span>
+                    <span>{!visible ? "Show Projects" : "Hide Projects"}</span>
                     
                 </button>
             </div>

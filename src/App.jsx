@@ -1,10 +1,10 @@
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from "./Pages/Home.jsx";
+import Home from "./Pages/HomePage.jsx";
 import Portfolio from "./Pages/Portfolio.jsx";
-import About from "./Pages/About.jsx";
-import Terminal from "./Pages/Terminal.jsx";
-import Profiles from "./Pages/Profiles.jsx";
+import About from "./Pages/AboutPage.jsx";
+import Terminal from "./Pages/TerminalPage.jsx";
+import Profiles from "./Pages/ProfilesPage.jsx";
 import Navbar from "./Navbar.jsx";
 
 

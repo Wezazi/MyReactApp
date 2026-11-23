@@ -72,7 +72,7 @@ function Portfolio() {
         });
 
         let set = new Set(list); /*Js sets are a bit weird but i got it working */
-        list = [...set] // just puts the set values in a list because react doesn't render set values
+        list = [...set] // just puts the set values in a list because we are using a list as argument for setMatchList
         return list;
     }
 

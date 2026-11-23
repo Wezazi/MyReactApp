@@ -259,7 +259,6 @@ function Terminal(props){
     useEffect(() => {
         if (isOpen && terminalBody.current) {
             createPrompt();
-            preventOverflow();
         }
     }, [isOpen]);
 

@@ -272,7 +272,7 @@ function Terminal(props){
                     <div className="buttonContainer">
                         <button onClick={() => {
                             setIsOpen(true);
-                        }}>Click Me!</button>
+                        }}>Open Terminal</button> {/*Don't forget to make the button look better later*/}
                     </div>
                 )}
 

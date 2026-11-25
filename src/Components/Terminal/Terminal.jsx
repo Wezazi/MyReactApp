@@ -25,7 +25,7 @@ function Terminal(props){
                     <div className="code-block oxanium-font">
                         const tech = {props.tech};
                         <br></br><br></br>
-                        var writeup = "{props.writeup}";
+                        var writeup = "{props.writeUp}";
                         <br></br><br></br>
                         const learned = {props.learned};
                         <br></br><br></br>
